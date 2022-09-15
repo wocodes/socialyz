@@ -16,21 +16,24 @@
         </div>
 
 
-        <div class="w-2/4 mx-auto sm:px-6 lg:px-8">
+        <div class="sm:w-full md:w-full lg:w-2/4 mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form method="POST" action="{{ route('event.store') }}">
                         @csrf
                         <div class="mt-4">
                             <x-label for="title" :value="__('Title')" />
+                            <x-input id="title" class="block mt-1 w-full" type="text" maxlength="100" name="title" :value="old('title')" required />
                             <span class="block text-xs text-red-400 leading-0 italic">
                                 Be creative, simple and cool with titles. <br>Examples are
                                 <strong>Moment with Pizza!</strong>,
                                 <strong>I scream Ice cream!</strong>,
                                 <strong>Lunch packs in a Park?</strong>,
-                                <strong>Move to the Movies!</strong>,
+                                <strong>Move to the Movies!</strong>. <br>
+                                Avoid adding your name or info that reveals your identity. The idea is for
+                                people to hangout without knowing who they're hanging out with.
+                                Thus making new friends/acquitance. Sounds fun?
                             </span>
-                            <x-input id="title" class="block mt-1 w-full" type="text" maxlength="100" name="title" :value="old('title')" required />
                         </div>
 
                         <div class="mt-4">
