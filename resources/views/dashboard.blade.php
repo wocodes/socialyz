@@ -52,10 +52,11 @@
                                                     ({{ $upcomingEvent->slots_left }} slot left)
                                                 </strong>
                                             </span> &middot;
-                                            <span class="mx-1">Location: <strong>{{ ucfirst($upcomingEvent->location) }}</strong></span> &middot;
+                                            <span class="mx-1"><strong>{{ ucfirst($upcomingEvent->location) }}</strong></span> &middot;
                                             <span class="mx-1">
                                                 Date: <strong>{{ date("dS M, Y", strtotime($upcomingEvent->date)) }}</strong> &middot;
-                                                Time: <strong>{{ date("h:ia", strtotime($upcomingEvent->date)) }}</strong>
+                                                Time: <strong>{{ date("h:ia", strtotime($upcomingEvent->date)) }}</strong> &middot;
+                                                Sponsor: <strong>{{ $event->payer }}</strong>
                                             </span>
                                         </span>
                                         @if($upcomingEvent->requirements)
