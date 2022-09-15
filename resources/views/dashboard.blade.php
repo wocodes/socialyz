@@ -87,10 +87,11 @@
                                             No. ppts:
                                             <strong>{{ $event->number_of_participants }} ({{ $event->slots_left }} slot left)</strong>
                                         </span> &middot;
-                                        <span class="mx-1">Location: <strong>{{ ucfirst($event->location) }}</strong></span> &middot;
+                                        <span class="mx-1"><strong>{{ ucfirst($event->location) }}</strong></span> &middot;
                                         <span class="mx-1">
                                             Date: <strong>{{ date("dS M, Y", strtotime($event->date)) }}</strong> &middot;
-                                            Time: <strong>{{ date("h:ia", strtotime($event->date)) }}</strong>
+                                            Time: <strong>{{ date("h:ia", strtotime($event->date)) }}</strong> &middot;
+                                            Sponsor: <strong>{{ $event->payer }}</strong>
                                         </span>
                                     </span>
                                     @if($event->requirements)
