@@ -23,7 +23,13 @@
                         @csrf
                         <div class="mt-4">
                             <x-label for="title" :value="__('Title')" />
-
+                            <span class="block text-xs text-red-400 leading-0 italic">
+                                Be creative, simple and cool with titles. <br>Examples are
+                                <strong>Moment with Pizza!</strong>,
+                                <strong>I scream Ice cream!</strong>,
+                                <strong>Lunch packs in a Park?</strong>,
+                                <strong>Move to the Movies!</strong>,
+                            </span>
                             <x-input id="title" class="block mt-1 w-full" type="text" maxlength="100" name="title" :value="old('title')" required />
                         </div>
 
