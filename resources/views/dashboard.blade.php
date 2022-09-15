@@ -35,7 +35,7 @@
                             @endforeach
                         @endif
 
-                        @if(count($data['joined_upcoming_events']))
+                        @if(!empty($data['joined_upcoming_events']))
                             <h6 class="text-sm text-center font-bold">Joined Upcoming events</h6>
                             @foreach($data['joined_upcoming_events'] as $upcomingEvent)
                                 <li class="border border-gray-200 rounded-xl my-4 p-2 shadow-lg">
