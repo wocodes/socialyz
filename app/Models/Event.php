@@ -38,6 +38,10 @@ class Event extends Model
 
     public function userHasJoined()
     {
+        if(!auth()->user()) {
+            return false;
+        }
+
         return $this->participants()->where('user_id', auth()->user()->id)->exists();
     }
 }

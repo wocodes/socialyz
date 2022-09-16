@@ -79,9 +79,7 @@
                                     @if($event->user_id == auth()->user()->id)
                                         <span class="text-sm rounded-2xl px-2 text-white bg-red-300 inline-block">my event</span>
                                         <span onclick="copyShareLink('{{ $event->title }}', {{ $event->id }})" class="shadow text-sm rounded-2xl px-2 text-white bg-blue-400 hover:bg-blue-600 cursor-pointer inline-block">share</span>
-                                        <span class="hidden" id="shareText">
-                                            Would you like to join me to {{ $event->name }}
-                                            https://social.rait.me/event/{{ $event->name }}. You can also host a hangout/event too.
+                                        <span class="hidden" id="shareText">Would you like to join me to {{ $event->title }} https://social.rait.me/event/{{ $event->id }}. You can also host a hangout/event too.
                                         </span>
                                     @endif
                                     <span class="text-2xl font-bold block">
@@ -110,7 +108,7 @@
                                         </span>
                                     @elseif($event->user_id != auth()->user()->id)
                                         <a onclick="return confirm('NOTE: This hangout may be hosted by someone you may have had some sort of relationship with, and this, you\'d only find out when you meet with them. It\'d be a good opportunity to fix or strengthen it. Also please endeavor to show up for it :-)')"
-                                            href="join/{{ $event->id }}"
+                                           href="{{ route('event.join', $event->id) }}"
                                             class="shadow-md cursor-pointer bg-blue-500 hover:bg-blue-600 p-1 mt-1 rounded-md text-center font-bold block">
                                             Join
                                         </a>

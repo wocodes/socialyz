@@ -38,8 +38,9 @@ Route::middleware('auth')->group(function() {
 
         return back();
     });
-
 });
+
+Route::get('/event/{event}', [EventController::class, "show"])->name('event.show');
 
 
 require __DIR__.'/auth.php';
