@@ -135,9 +135,16 @@
         // copyText.setSelectionRange(0, 99999); // For mobile devices
 
         // Copy the text inside the text field
-        navigator.clipboard.writeText(copyText);
+        // setTimeout(async()=>console.log(await window.navigator.clipboard.writeText(copyText).then(function() {
+        //     alert("Shareable link copied...");
+        // })), 3000);
+
+        window.navigator.clipboard.writeText(copyText).then(function() {
+            alert("Shareable link copied...");
+        });
+
+        // navigator.clipboard.writeText(copyText);
 
         // Alert the copied text
-        alert("Shareable link copied...");
     }
 </script>
