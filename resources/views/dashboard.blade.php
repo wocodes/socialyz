@@ -78,7 +78,7 @@
                                 <li class="border border-gray-200 rounded-xl my-4 p-2 shadow-lg">
                                     @if($event->user_id == auth()->user()->id)
                                         <span class="text-sm rounded-2xl px-2 text-white bg-red-300 inline-block">my event</span>
-                                        <span onclick="copyShareLink('{{ $event->title }}', {{ $event->id }})" class="shadow text-sm rounded-2xl px-2 text-white bg-blue-400 hover:bg-blue-600 cursor-pointer inline-block">share</span>
+                                        <span onclick='copyShareLink("{{ $event->title }}", {{ $event->id }})' class="shadow text-sm rounded-2xl px-2 text-white bg-blue-400 hover:bg-blue-600 cursor-pointer inline-block">share</span>
                                         <span class="hidden" id="shareText">Would you like to join me to {{ $event->title }} https://social.rait.me/event/{{ $event->id }}. You can also host a hangout/event too.
                                         </span>
                                     @endif
