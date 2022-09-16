@@ -97,9 +97,10 @@
                         </div>
 
                         <div class="flex items-center justify-end mt-4">
-                            <x-button class="ml-4">
+                            <button class="ml-4 text-gray-200 bg-gray-800 py-1 px-10 rounded-2xl font-bold"
+                                      onclick="return confirm('NOTE: This hangout may be joined by someone you may have had some sort of relationship with, and this, you\'d only find out when you meet with them. It\'d be a good opportunity to fix or strengthen it. Also please endeavor to show up for it :-)')">
                                 {{ __('Create') }}
-                            </x-button>
+                            </button>
                         </div>
                     </form>
                 </div>

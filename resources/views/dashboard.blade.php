@@ -56,7 +56,7 @@
                                             <span class="mx-1">
                                                 Date: <strong>{{ date("dS M, Y", strtotime($upcomingEvent->date)) }}</strong> &middot;
                                                 Time: <strong>{{ date("h:ia", strtotime($upcomingEvent->date)) }}</strong> &middot;
-                                                Sponsor: <strong>{{ $event->payer }}</strong>
+                                                Sponsor: <strong>{{ $upcomingEvent->payer }}</strong>
                                             </span>
                                         </span>
                                         @if($upcomingEvent->requirements)
@@ -104,7 +104,9 @@
                                             Joined
                                         </span>
                                     @elseif($event->user_id != auth()->user()->id)
-                                        <a href="join/{{ $event->id }}" class="shadow-md cursor-pointer bg-blue-500 hover:bg-blue-600 p-1 mt-1 rounded-md text-center font-bold block">
+                                        <a onclick="return confirm('NOTE: This hangout may be hosted by someone you may have had some sort of relationship with, and this, you\'d only find out when you meet with them. It\'d be a good opportunity to fix or strengthen it. Also please endeavor to show up for it :-)')"
+                                            href="join/{{ $event->id }}"
+                                            class="shadow-md cursor-pointer bg-blue-500 hover:bg-blue-600 p-1 mt-1 rounded-md text-center font-bold block">
                                             Join
                                         </a>
                                     @endif
