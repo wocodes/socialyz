@@ -79,6 +79,10 @@
                                     @if($event->user_id == auth()->user()->id)
                                         <span class="text-sm rounded-2xl px-2 text-white bg-red-300 inline-block">my event</span>
                                         <span onclick="copyShareLink('{{ $event->title }}', {{ $event->id }})" class="shadow text-sm rounded-2xl px-2 text-white bg-blue-400 hover:bg-blue-600 cursor-pointer inline-block">share</span>
+                                        <span class="hidden" id="shareText">
+                                            Would you like to join me to {{ $event->name }}
+                                            https://social.rait.me/event/{{ $event->name }}. You can also host a hangout/event too.
+                                        </span>
                                     @endif
                                     <span class="text-2xl font-bold block">
                                         <span class="text-gray-300">#{{ $event->id }}</span>
@@ -122,19 +126,16 @@
 </x-app-layout>
 
 <script>
-    function copyShareLink(eventId, eventName) {
+    function copyShareLink() {
         // Get the text field
-        // var copyText = document.getElementById("myInput");
+        var copyText = document.getElementById("shareText").innerText;
 
         // Select the text field
         // copyText.select();
         // copyText.setSelectionRange(0, 99999); // For mobile devices
 
         // Copy the text inside the text field
-        var text = "Would you like to join me to \"" +
-            eventName +
-            "? \" https://social.rait.me/event/" + eventId + ". You can also host a hangout/event too.";
-        navigator.clipboard.writeText(text);
+        navigator.clipboard.writeText(copyText);
 
         // Alert the copied text
         alert("Shareable link copied...");
