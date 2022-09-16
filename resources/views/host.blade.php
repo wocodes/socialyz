@@ -50,8 +50,15 @@
 
                         <div class="mt-4">
                             <x-label for="date" :value="__('Date')" />
-
-                            <x-input id="date" class="block mt-1 w-full" type="datetime-local" name="date" :value="old('date')" required />
+<?php
+$mindate = date("Y-m-d");
+$mintime = date("h:i");
+$min = $mindate."T".$mintime;
+$maxdate = date("Y-m-d", strtotime("+10 Days"));
+$maxtime = date("h:i");
+$max = $maxdate."T".$maxtime;
+?>
+                            <x-input id="date" min="{{ $min }}" class="block mt-1 w-full" type="datetime-local" name="date" :value="old('date')" required />
                         </div>
 
                         <div class="mt-4">
@@ -92,7 +99,7 @@
 
                                 <div><x-input id="payer" type="radio" name="payer" value="participants" required /> Participants</div>
 
-                                <div><x-input id="payer" type="radio" name="payer" value="all parties" required /> All parties</div>
+                                <div><x-input id="payer" type="radio" name="payer" value="all" required /> All parties</div>
                             </div>
                         </div>
 
